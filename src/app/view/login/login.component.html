@@ -1,0 +1,45 @@
+<div class="logig-warp">
+  <form class="login-form" #myForm="ngForm" (ngSubmit)="handlerForm(myForm.value)">
+    <div>
+      <label for="name">用户名:</label>
+      <input
+        type="text"
+        #username="ngModel"
+        name="username"
+        [minlength]="3"
+        [maxlength]="8"
+        id="name"
+        placeholder="请输入用户名:"
+        ngModel
+        required
+      />
+      <p class="text-danger" [hidden]="username.valid">输入字符长度在5-9之间</p>
+    </div>
+    <div>
+      <label for="pwd">密码：</label>
+      <input
+        type="text"
+        ngModel
+        #password="ngModel"
+        name="password"
+        id="pwd"
+        placeholder="请输入密码:"
+        [maxlength]="16"
+        [minlength]="10"
+        required
+      />
+      <p class="text-danger" [hidden]="password.valid">手机密码长度在10-16位</p>
+    </div>
+    <div>
+      <button class="btn" type="submit">登录</button>
+      <button class="btn" type="reset">重置</button>
+    </div>
+    <p>
+      我输入的信息<br />
+      {{ myForm.value.username }}
+      {{ myForm.value.password }}
+
+    </p>
+    <br />
+  </form>
+</div>
